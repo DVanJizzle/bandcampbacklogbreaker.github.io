@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { json } from 'express';
-import { error } from 'node:console';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,8 +16,12 @@ export class AppComponent {
 
   title = 'Bandcamp Backlog Breaker';
   proxyUrl = "https://corsproxy.io/?";
+  errorMessage: boolean = false;
+  labelText = "Something went wrong..."
 
   async getUserWishlistData(): Promise<void> {
+    this.errorMessage = false;
+
     var input = (document.getElementById("Input") as HTMLInputElement).value;
     let wishlist: string = this.proxyUrl + "https://bandcamp.com/" + input + "/wishlist";
         
@@ -29,13 +32,15 @@ export class AppComponent {
     {
       htmlContent = await fetch(wishlist).then(res => res.text());
       SizeAndId = this.getFanIdAndCount(htmlContent);
+      let albumLinks = await this.requestWishlistItems(SizeAndId);
+      const finalLink = this.getRandomWishlistItem(albumLinks, SizeAndId[0]);
+      window.open(finalLink);
     }
     catch
     {
-
+      this.errorMessage = true;
     }
 
-    await this.requestWishlistItems(SizeAndId);
 
   }
 
@@ -88,36 +93,11 @@ export class AppComponent {
     return albumLinks;
   }
 
-  //getRandomWishlistItem(htmlContent: string): void {
-  //  /*console.log(htmlContent);*/
-  //    ;
-  //  if (wishlistSize && wishlistSize[1]) {
-  //    console.log(wishlistSize[1]);
-  //    let index: number = Math.floor(Math.random() * Number(wishlistSize[1]));
-  //    console.log(index);
-  //    if (index > 19) {
-  //      let scrollAmount: number = index % 20;
-  //    }
-
-  //    let count: number = 0;
-  //    let match;
-  //    const regexWishlistEntry = /<a\s+target="_blank"\s+href="([^"]+)"\s+class="item-link">/g;
-
-  //    while ((match = regexWishlistEntry.exec(htmlContent)) !== null) {
-  //      if (count == index) {
-  //        console.log(match[1]);
-  //        break;
-  //      }
-  //      else {
-  //        count++;
-  //        console.log(match[1]);
-
-  //      }
-  //    }
-  //  }
-  //  else {
-  //    /* Hier soll das Eingabefeld einen Fehler anzeigen*/
-  //  }
-  //}
+  getRandomWishlistItem(albumlinks: string[], size: string): string {
+        
+      let winner: number = Math.floor(Math.random() * Number(size));
+    return albumlinks[winner];
+      
+  }
 
 }

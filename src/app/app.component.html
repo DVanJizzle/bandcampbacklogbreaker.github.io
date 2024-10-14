@@ -65,7 +65,7 @@
     background-color: #1da0c3;
     border-color: black;
     outline-color: #1da0c3;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.75rem 0;
     max-width: 35rem;
     color: white;
     cursor: pointer;
@@ -76,20 +76,35 @@
     color: black;
     opacity: 75%;
   }
+
+  .left-side label {
+      color: red;
+    font: "Helvetica Neue";
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .vertical-line {
+    stroke: #1da0c3;
+    stroke-width: 1;
+    display:inline-block;
+  }
 </style>
 
-<main class="main">
+<main class="main">  
   <div class="content">
-    <div class="left-side">      
+    <div class="left-side">
       <h1>Bandcamp Backlog Breaker</h1>
-        <input name="InputField" type="text" placeholder="Your Bandcamp name..." id="Input">
-        <button type="button" (click)="getUserWishlistData()">Let's rock</button>
+      <input name="InputField" type="text" placeholder="Your Bandcamp name..." id="Input">
+      <button type="button" (click)="getUserWishlistData()">Let's rock</button>
+      <div *ngIf="errorMessage">
+        <label>{{labelText}}</label>
+      </div>
       <p>
-      Got too much good music on your Watchlist and you don't know
+        Got too much good music on your Watchlist and you don't know
         where to start?
       </p>
       <p>
-      Let the Bandcamp Backlog Breaker decide which band you should support next!
+        Let the Bandcamp Backlog Breaker decide which band you should support next!
       </p>
     </div>
   </div>
