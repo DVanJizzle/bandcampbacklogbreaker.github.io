@@ -17,7 +17,7 @@ export class AppComponent {
   title = 'Bandcamp Backlog Breaker';
   proxyUrl = "https://corsproxy.io/?";
   errorMessage: boolean = false;
-  labelText = "Something went wrong..."
+  labelText = "Something went wrong. We likely couldn't find your account."
 
   async getUserWishlistData(): Promise<void> {
     this.errorMessage = false;
@@ -51,7 +51,7 @@ export class AppComponent {
     const regexWishlistCount = /<li\s+data-tab="wishlist"[^>]*>\s*<span[^>]*>\s*[^<]*<span\s+class="count">(\d+)<\/span>\s*<\/span>\s*<\/li>/
     let wishlistSize = htmlContent.match(regexWishlistCount);
     if (wishlistSize && wishlistSize[1]) {
-      result[0] = Math.min(Number(wishlistSize[1]),20).toString();
+      result[0] = Math.min(Number(wishlistSize[1]),500).toString();
     }
     else {throw new Error("Wishlist size not found");}
 
