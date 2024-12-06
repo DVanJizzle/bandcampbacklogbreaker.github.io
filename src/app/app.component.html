@@ -1,8 +1,9 @@
 
+
 <style>
 
   h1 {
-    font-size: 3.125rem;
+    font-size: 5.5rem;
     color: var(--gray-900);
     font-weight: 500;
     line-height: 100%;
@@ -13,79 +14,93 @@
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 3.25rem;
     color: var(--gray-900);
     font-weight: 500;
     line-height: 100%;
     letter-spacing: -0.05rem;
-    margin: 0.5rem 0 1rem 0;
-    max-inline-size: 35rem;
+    max-inline-size: 65rem;
     font: "Helvetica Neue";
     font-family: Arial, Helvetica, sans-serif;
   }
 
+  .mainP {
+    margin: 0.5rem 0 1rem 0;
+  }
+
   .smoll {
-    font-size: 0.45rem;
+    font-size: 1rem;
     letter-spacing: 0;
-    position: fixed;
-    bottom: -14px;
+    position: relative;
+    margin-left:1rem;
+    bottom:0.5rem;
   }
 
   .shamelessPlug {
-    font-size: 0.5rem;
+    font-size: 1.3rem;
     letter-spacing: 0;
-    bottom: -13px;
-    position: absolute
+    position: relative;
+    margin-left: 1rem;
+    bottom: 0rem;
+    text-align: left;
+    top: -0.5rem;
   }
 
   main {
-    width: 100%;
-    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     box-sizing: inherit;
-    position: relative;
+    min-height: 50px;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
   }
 
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-right: 2rem;
-    margin-top: 0.5rem;
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
   }
-
-    .content h1 {
-      margin-top: 1.75rem;
-      margin-bottom: 0.5rem;
-    }
 
   input[type = text] {
     width: 100%;
     background-color: lightgrey;
     color: black;
     margin: 1rem 0 4px 0;
-    max-width: 35rem;
     border: solid;
     border-color: #1da0c3;
     outline-color: #1da0c3;
-    height: 1rem;
+    height: 1.75rem;
+  }
+
+  input::placeholder {
+    font-size: 1.2rem;
   }
 
   button[type = button] {
     background-color: #1da0c3;
     border-color: black;
+    border-width: 3px;
     outline-color: #1da0c3;
     margin: 0 0 0.75rem 0;
     max-width: 35rem;
     color: white;
     cursor: pointer;
-    width: 5rem;
+    width: 7rem;
+    height: 2rem;
+    font-size: 1.15rem;
   }
 
+  label{
+    color: red;
+    font-size: 1.25rem;
+  }
+
+  /*
   ::placeholder {
     color: black;
     opacity: 75%;
@@ -101,60 +116,62 @@
     stroke: #1da0c3;
     stroke-width: 1;
     display: inline-block;
-  }
-
- /* .svg {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    float: left;
-
-  }
-
-  .svg .shape-fill {
-    fill: #1DA0C3CC;
-  }
-
-  footer {
-    background-color: #1da0c3;
-    height: 50px;
-  }
-
-  footer::before{
-      float: left;
   }*/
 
+  footer {
+    position: relative;
+    margin-left: -1rem;
+    margin-right: -0.5rem;
+    overflow: hidden;
+    background-color: #1DA0C3CC;
+    height: 80px;
+    bottom: -3.4rem;
+  }
+
+  label{
+    display: inline-block;
+    height: 1.1rem;
+  }
+
+  img.yt{
+    height: 3%;
+    width:3%;
+    margin-left: 20px;
+  }
+
+  img.bc {
+    height: 13%;
+    width: 13%;
+  }
 </style>
 
 <main class="main">
-  <div class="content">
-    <div class="left-side">
+  <div>
       <h1>Bandcamp Backlog Breaker</h1>
       <input name="InputField" type="text" placeholder="Your Bandcamp name..." id="Input">
       <button type="button" (click)="getUserWishlistData()">Let's rock</button>
       <div *ngIf="errorMessage">
-        <label>{{labelText}}</label>
+        <label >{{labelText}}</label>
       </div>
-      <p>
+      <p class="mainP">
         Got too much good music on your Watchlist and you don't know
         where to start?
       </p>
-      <p>
+      <p class="mainP">
         Let the Bandcamp Backlog Breaker decide which band you should support next!
       </p>
-    </div>
   </div>
 </main>
 
-<!--<footer class="svg">
-  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-    <path d="M0 120 L1200 120 1200 0 0 104z" class="shape-fill"></path>
-  </svg>
-</footer>-->
+<footer>
+  <p class="shamelessPlug">
+    <a href="https://bandcamp.com/thedizzlingone">
+      <img class="bc" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/BandcampLogo_x320.png">
+    </a>
 
-<!--<footer>
+  <a href="https://www.youtube.com/@jvandizzle9014">
+    <img class="yt" src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
+    </a></p>
   <p class="smoll">
     Note: The author of this site is not affiliated with Bandcamp.
   </p>
@@ -162,4 +179,3 @@
 
 
 
-<p class="shamelessPlug"><a href="https://bandcamp.com/thedizzlingone">Find me here</a></p>-->

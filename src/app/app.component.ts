@@ -16,11 +16,13 @@ export class AppComponent {
 
   title = 'Bandcamp Backlog Breaker';
   proxyUrl = "https://corsproxy.io/?";
-  errorMessage: boolean = false;
-  labelText = "Something went wrong. We likely couldn't find your account."
+  errorMessage: boolean = true;
+  labelText = ""
 
   async getUserWishlistData(): Promise<void> {
-    this.errorMessage = false;
+
+    this.labelText = "Spin the wheel!"
+
 
     var input = (document.getElementById("Input") as HTMLInputElement).value;
     let wishlist: string = this.proxyUrl + "https://bandcamp.com/" + input + "/wishlist";
@@ -35,10 +37,12 @@ export class AppComponent {
       let albumLinks = await this.requestWishlistItems(SizeAndId);
       const finalLink = this.getRandomWishlistItem(albumLinks, SizeAndId[0]);
       window.open(finalLink);
+      this.labelText = "It could be worse, I guess..."
+
     }
     catch
     {
-      this.errorMessage = true;
+      this.labelText = "Something went wrong. We likely couldn't find your account."
     }
 
 
