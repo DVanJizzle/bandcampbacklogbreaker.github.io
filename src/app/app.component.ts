@@ -32,6 +32,12 @@ export class AppComponent {
     this.labelText = this.methodRunningPhrases[winnerMethodRunning]//"Spin the wheel!" 
 
     var input = (document.getElementById("Input") as HTMLInputElement).value;
+    if (input === "")
+    {
+      this.labelText = "Something went wrong. You can find your Bandcamp name in the link of your profile page."
+      this.isRunning = false;
+      return;
+    }
     let wishlist: string = this.proxyUrl + "https://bandcamp.com/" + input + "/wishlist";
         
     var htmlContent: string;

@@ -1,4 +1,5 @@
-
+<!-- ng build --output-path=dist --base-href /bandcampbacklogbreaker.github.io/ -->
+<!-- npx angular-cli-ghpages --dir=dist/browser -->
 
 <style>
 
@@ -32,8 +33,8 @@
     font-size: 1rem;
     letter-spacing: 0;
     position: relative;
-    margin-left:1rem;
-    bottom:0.5rem;
+    margin-left: 1rem;
+    bottom: 0.5rem;
   }
 
   .shamelessPlug {
@@ -94,7 +95,7 @@
     font-size: 1.15rem;
   }
 
-  label{
+  label {
     color: red;
     font-size: 1.25rem;
   }
@@ -127,14 +128,14 @@
     bottom: -3.4rem;
   }
 
-  label{
+  label {
     display: inline-block;
     height: 1.1rem;
   }
 
-  img.yt{
+  img.yt {
     height: 3%;
-    width:3%;
+    width: 3%;
     margin-left: 20px;
   }
 
@@ -152,19 +153,19 @@
 
 <main class="main">
   <div>
-      <h1>Bandcamp Backlog Breaker</h1>
-      <input name="InputField" type="text" placeholder="Your Bandcamp name..." id="Input">
-      <button type="button"  (click)="getUserWishlistData()">Let's rock</button>
-      <div *ngIf="errorMessage">
-        <label >{{labelText}}</label>
-      </div>
-      <p class="mainP">
-        Got too much good music on your Watchlist and you don't know
-        where to start?
-      </p>
-      <p class="mainP">
-        Let the Bandcamp Backlog Breaker decide which band you should support next!
-      </p>
+    <h1>Bandcamp Backlog Breaker</h1>
+    <input name="InputField" type="text" placeholder="Your Bandcamp name..." id="Input">
+    <button type="button" (click)="getUserWishlistData()">Let's rock</button>
+    <div *ngIf="errorMessage">
+      <label>{{labelText}}</label>
+    </div>
+    <p class="mainP">
+      Got too much good music on your Watchlist and you don't know
+      where to start?
+    </p>
+    <p class="mainP">
+      Let the Bandcamp Backlog Breaker decide which band you should support next!
+    </p>
   </div>
 </main>
 
@@ -174,9 +175,10 @@
       <img class="bc" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/BandcampLogo_x320.png">
     </a>
 
-  <a href="https://www.youtube.com/@jvandizzle9014">
-    <img class="yt" src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
-    </a></p>
+    <a href="https://www.youtube.com/@jvandizzle9014">
+      <img class="yt" src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
+    </a>
+  </p>
   <p class="smoll">
     Note: The author of this site is not affiliated with Bandcamp. Contact: jvandizzle36&#64;gmail.com
   </p>
