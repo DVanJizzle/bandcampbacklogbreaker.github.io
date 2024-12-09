@@ -57,7 +57,6 @@ ${n.map((r,o)=>`${o+1}) ${r.toString()}`).join(`
     min-height: 50px;
     margin-top: 4rem;
     margin-bottom: 1rem;
-    width: 100%;
   }
 
   body[_ngcontent-%COMP%] {
