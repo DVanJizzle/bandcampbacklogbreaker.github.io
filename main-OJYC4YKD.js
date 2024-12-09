@@ -35,8 +35,8 @@ ${n.map((r,o)=>`${o+1}) ${r.toString()}`).join(`
     font-size: 1rem;
     letter-spacing: 0;
     position: relative;
-    margin-left:1rem;
-    bottom:0.5rem;
+    margin-left: 1rem;
+    bottom: 0.5rem;
   }
 
   .shamelessPlug[_ngcontent-%COMP%] {
@@ -57,6 +57,7 @@ ${n.map((r,o)=>`${o+1}) ${r.toString()}`).join(`
     min-height: 50px;
     margin-top: 4rem;
     margin-bottom: 1rem;
+    width: 100%;
   }
 
   body[_ngcontent-%COMP%] {
@@ -97,29 +98,10 @@ ${n.map((r,o)=>`${o+1}) ${r.toString()}`).join(`
     font-size: 1.15rem;
   }
 
-  label[_ngcontent-%COMP%]{
+  label[_ngcontent-%COMP%] {
     color: red;
     font-size: 1.25rem;
   }
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   footer[_ngcontent-%COMP%] {
     position: relative;
@@ -131,14 +113,14 @@ ${n.map((r,o)=>`${o+1}) ${r.toString()}`).join(`
     bottom: -3.4rem;
   }
 
-  label[_ngcontent-%COMP%]{
+  label[_ngcontent-%COMP%] {
     display: inline-block;
     height: 1.1rem;
   }
 
-  img.yt[_ngcontent-%COMP%]{
+  img.yt[_ngcontent-%COMP%] {
     height: 3%;
-    width:3%;
+    width: 3%;
     margin-left: 20px;
   }
 
