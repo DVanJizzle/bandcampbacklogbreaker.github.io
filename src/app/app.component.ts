@@ -155,7 +155,7 @@ export class AppComponent {
     "Dusting of the ol' trumpet.",
     "Oiling up the saxophone.",
     "Practicing solos.",
-    "Finding a way to recommend Vector to you.",
+    "Finding a way to recommend Vektor to you.",
     "You get an album, and you get an album AND YOU GET AN ALBUM.",
     "It always pays to shoot your shot.",
     "Acting like any of this is actually random.",
