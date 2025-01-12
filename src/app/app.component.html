@@ -4,7 +4,7 @@
 <style>
 
   h1 {
-    font-size: 5.5rem;
+    font-size: 4.5rem;
     color: var(--gray-900);
     font-weight: 500;
     line-height: 100%;
@@ -12,6 +12,7 @@
     margin: 0;
     font: "Helvetica Neue";
     font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
   }
 
   p {
@@ -26,7 +27,7 @@
   }
 
   .mainP {
-    margin: 0.5rem 0 1rem 0;
+    margin: 1rem 0 -0.5rem 0;
   }
 
   .smoll {
@@ -67,7 +68,7 @@
   }
 
   input[type = text] {
-    width: 100%;
+    width: 92%;
     background-color: lightgrey;
     color: black;
     margin: 1rem 0 4px 0;
@@ -98,25 +99,16 @@
   label {
     color: red;
     font-size: 1.25rem;
+    margin-bottom: 5rem;
   }
 
-  /*
-  ::placeholder {
-    color: black;
-    opacity: 75%;
-  }
+    div.uno{
+        margin-bottom: 0.5rem;
+    }
 
-  .left-side label {
-    color: red;
-    font: "Helvetica Neue";
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .vertical-line {
-    stroke: #1da0c3;
-    stroke-width: 1;
-    display: inline-block;
-  }*/
+    a.dos{
+        font-size: 1.5rem;
+    }
 
   footer {
     position: relative;
@@ -126,11 +118,7 @@
     background-color: #1DA0C3CC;
     height: 80px;
     bottom: -3.4rem;
-  }
 
-  label {
-    display: inline-block;
-    height: 1.1rem;
   }
 
   img.yt {
@@ -156,8 +144,11 @@
     <h1>Bandcamp Backlog Breaker</h1>
     <input name="InputField" type="text" placeholder="Your Bandcamp name..." id="Input">
     <button type="button" (click)="getUserWishlistData()">Let's rock</button>
-    <div *ngIf="errorMessage">
-      <label>{{labelText}}</label>
+    <div class="uno" *ngIf="errorMessage">
+      <label >{{labelText}}</label>
+    </div>
+    <div *ngIf="linkProvided">
+      <a class="dos" [href]="link">{{link}}></a>
     </div>
     <p class="mainP">
       Got too much good music on your Watchlist and you don't know

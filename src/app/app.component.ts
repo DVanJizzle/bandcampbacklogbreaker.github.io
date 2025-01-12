@@ -15,10 +15,12 @@ export class AppComponent {
   }
 
   title = 'Bandcamp Backlog Breaker';
-  proxyUrl = "https://corsproxy.io/?";
+  proxyUrl = "https://corsproxy.io/?url=";
   errorMessage: boolean = true;
   labelText = ""
   isRunning = false
+  linkProvided: boolean = false;
+  link = ""
 
   async getUserWishlistData(): Promise<void> {
     if (this.isRunning)
@@ -48,8 +50,9 @@ export class AppComponent {
       htmlContent = await fetch(wishlist).then(res => res.text());
       SizeAndId = this.getFanIdAndCount(htmlContent);
       let albumLinks = await this.requestWishlistItems(SizeAndId);
-      const finalLink = this.getRandomWishlistItem(albumLinks, SizeAndId[0]);
-      window.open(finalLink);
+      this.link = this.getRandomWishlistItem(albumLinks, SizeAndId[0]);
+      this.linkProvided = true;
+      window.open(this.link);
       let winnerPhrase: number = Math.floor(Math.random() * this.successPhrases.length);
       this.labelText = this.successPhrases[winnerPhrase] //"It could be worse, I guess..."
       this.isRunning = false;
