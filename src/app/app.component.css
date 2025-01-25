@@ -1,0 +1,119 @@
+div { 
+}
+
+.app-wrapper {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  margin-top: -1rem;
+}
+
+h1 {
+  font-size: 4.5rem;
+  color: var(--gray-900);
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+  font: "Helvetica Neue";
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+p {
+  font-size: 3.25rem;
+  color: var(--gray-900);
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.05rem;
+  max-inline-size: 65rem;
+  font: "Helvetica Neue";
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainP {
+  margin: 1rem 0 0.2rem 0;
+}
+
+.smoll {
+  font-size: 1rem;
+  letter-spacing: 0;
+  margin-left: 1rem;
+  bottom: 0.5rem;
+}
+
+.shamelessPlug {
+  font-size: 1.3rem;
+  letter-spacing: 0;
+  margin-left: 1rem;
+  text-align: left;
+  top: -0.5rem;
+  position: relative;
+}
+
+input[type = text] {
+  width: 92%;
+  background-color: lightgrey;
+  color: black;
+  margin: 0 0 4px 0;
+  border: solid;
+  border-color: #1da0c3;
+  outline-color: #1da0c3;
+  height: 1.75rem;
+}
+
+input::placeholder {
+  font-size: 1.2rem;
+}
+
+button[type = button] {
+  background-color: #1da0c3;
+  border-color: black;
+  border-width: 3px;
+  outline-color: #1da0c3;
+  margin: 0 0 0.75rem 0;
+  max-width: 35rem;
+  color: white;
+  cursor: pointer;
+  width: 7rem;
+  height: 2rem;
+  font-size: 1.15rem;
+}
+
+label {
+  color: red;
+  font-size: 1.25rem;
+  margin-bottom: 5rem;
+}
+
+div.uno {
+  margin-bottom: 0.5rem;
+}
+
+a.dos {
+  font-size: 1.5rem;
+}
+
+footer {
+  background-color: #1DA0C3CC;
+  width: 100%;
+}
+
+img.yt {
+  height: 3%;
+  width: 3%;
+  margin-left: 20px;
+}
+
+img.bc {
+  height: 13%;
+  width: 13%;
+}
+
+

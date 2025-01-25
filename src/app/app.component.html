@@ -1,179 +1,42 @@
 <!-- ng build --output-path=dist --base-href /bandcampbacklogbreaker.github.io/ -->
 <!-- npx angular-cli-ghpages --dir=dist/browser -->
 
-<style>
 
-  h1 {
-    font-size: 4.5rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font: "Helvetica Neue";
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-  }
-
-  p {
-    font-size: 3.25rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.05rem;
-    max-inline-size: 65rem;
-    font: "Helvetica Neue";
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .mainP {
-    margin: 1rem 0 -0.5rem 0;
-  }
-
-  .smoll {
-    font-size: 1rem;
-    letter-spacing: 0;
-    position: relative;
-    margin-left: 1rem;
-    bottom: 0.5rem;
-  }
-
-  .shamelessPlug {
-    font-size: 1.3rem;
-    letter-spacing: 0;
-    position: relative;
-    margin-left: 1rem;
-    text-align: left;
-    top: -0.5rem;
-  }
-
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    min-height: 50px;
-    margin-top: 4rem;
-    margin-bottom: 1rem;
-  }
-
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-  }
-
-  input[type = text] {
-    width: 92%;
-    background-color: lightgrey;
-    color: black;
-    margin: 1rem 0 4px 0;
-    border: solid;
-    border-color: #1da0c3;
-    outline-color: #1da0c3;
-    height: 1.75rem;
-  }
-
-  input::placeholder {
-    font-size: 1.2rem;
-  }
-
-  button[type = button] {
-    background-color: #1da0c3;
-    border-color: black;
-    border-width: 3px;
-    outline-color: #1da0c3;
-    margin: 0 0 0.75rem 0;
-    max-width: 35rem;
-    color: white;
-    cursor: pointer;
-    width: 7rem;
-    height: 2rem;
-    font-size: 1.15rem;
-  }
-
-  label {
-    color: red;
-    font-size: 1.25rem;
-    margin-bottom: 5rem;
-  }
-
-    div.uno{
-        margin-bottom: 0.5rem;
-    }
-
-    a.dos{
-        font-size: 1.5rem;
-    }
-
-  footer {
-    position: relative;
-    margin-left: -1rem;
-    margin-right: -0.5rem;
-    overflow: hidden;
-    background-color: #1DA0C3CC;
-    height: 80px;
-    bottom: -3.4rem;
-
-  }
-
-  img.yt {
-    height: 3%;
-    width: 3%;
-    margin-left: 20px;
-  }
-
-  img.bc {
-    height: 13%;
-    width: 13%;
-  }
-
-  @media screen and (max-width: 768px) {
-    footer {
-      padding: 15px; /* Mehr Raum schaffen */
-      text-align: center; /* Text besser anpassen */
-    }
-</style>
-
-<main class="main">
-  <div>
-    <h1>Bandcamp Backlog Breaker</h1>
-    <input name="InputField" type="text" placeholder="Your Bandcamp name..." id="Input">
-    <button type="button" (click)="getUserWishlistData()">Let's rock</button>
-    <div class="uno" *ngIf="errorMessage">
-      <label >{{labelText}}</label>
+<div class="app-wrapper">
+  <main class="main">
+    <div>
+      <h1>Bandcamp Backlog Breaker</h1>
+      <input name="InputField" type="text" placeholder="Your Bandcamp name..." id="Input">
+      <button type="button" (click)="getUserWishlistData()">Let's rock</button>
+      <div class="uno" *ngIf="errorMessage">
+        <label>{{labelText}}</label>
+      </div>
+      <div *ngIf="linkProvided">
+        <a class="dos" [href]="link">{{link}}></a>
+      </div>
+      <p class="mainP">
+        Got too much good music on your Watchlist and you don't know
+        where to start?
+      </p>
+      <p class="mainP">
+        Let the Bandcamp Backlog Breaker decide which band you should support next!
+      </p>
     </div>
-    <div *ngIf="linkProvided">
-      <a class="dos" [href]="link">{{link}}></a>
-    </div>
-    <p class="mainP">
-      Got too much good music on your Watchlist and you don't know
-      where to start?
+  </main>
+
+  <footer>
+    <p class="shamelessPlug">
+      <a href="https://bandcamp.com/thedizzlingone">
+        <img class="bc" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/BandcampLogo_x320.png">
+      </a>
+
+      <a href="https://www.youtube.com/@jvandizzle9014">
+        <img class="yt" src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
+      </a>
     </p>
-    <p class="mainP">
-      Let the Bandcamp Backlog Breaker decide which band you should support next!
+    <p class="smoll">
+      Note: The author of this site is not affiliated with Bandcamp. Contact: jvandizzle36&#64;gmail.com
     </p>
-  </div>
-</main>
-
-<footer>
-  <p class="shamelessPlug">
-    <a href="https://bandcamp.com/thedizzlingone">
-      <img class="bc" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/BandcampLogo_x320.png">
-    </a>
-
-    <a href="https://www.youtube.com/@jvandizzle9014">
-      <img class="yt" src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
-    </a>
-  </p>
-  <p class="smoll">
-    Note: The author of this site is not affiliated with Bandcamp. Contact: jvandizzle36&#64;gmail.com
-  </p>
-</footer>
-
-
+  </footer>
+</div>
 
